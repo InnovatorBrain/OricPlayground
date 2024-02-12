@@ -1,87 +1,109 @@
-import React, { useEffect, useState } from 'react'
-import { FaShoppingCart } from 'react-icons/fa';
+// Navbar.js
+import React, { useState } from "react";
+import { Link } from "react-router-dom";
+import "./Navbar.css";
 
-import { GiHamburgerMenu } from 'react-icons/gi'
-import { MdOutlineRestaurantMenu } from 'react-icons/md'
-import './Navbar.css'
-import { Link } from 'react-router-dom'
-import images from '../../constants/images'
-const Navbar = () => {
-  const [toggleMenu, setToggleMenu] = React.useState(false);
+const Navbar = ({ showModeratorBoard, showAdminBoard, currentUser, logOut }) => {
+  const [collapsed, setCollapsed] = useState(true);
 
+  const toggleNavbar = () => {
+    setCollapsed(!collapsed);
+  };
 
-  // ...
-  const [prevScrollPos, setPrevScrollPos] = useState(window.pageYOffset);
-  const [visible, setVisible] = useState(true);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      const currentScrollPos = window.pageYOffset;
-
-      setVisible(prevScrollPos > currentScrollPos);
-      setPrevScrollPos(currentScrollPos);
-    };
-
-    window.addEventListener('scroll', handleScroll);
-    return () => {
-      window.removeEventListener('scroll', handleScroll);
-    };
-  }, [prevScrollPos]);
-
-
-  // ...
   return (
-    visible ?
-
-      <>
-        <nav className='app__navbar'>
-          <div className='app__navbar-logo'>
-            <Link to="/Home">
-              <img src={images.whiteRedLogo} alt='app logo' />
-            </Link>
-          </div>
-          <ul className="app__navbar-links">
-            <li className='p-links'><Link to="/Home">Home</Link></li>
-            <li className='p-links'><Link to="/AboutUs">About Us</Link></li>
-            <li className='p-links'><Link to="/Gallery">Gallery</Link></li>
-            <li className='p-links'><Link to="/Menu">Menu</Link></li>
-            <li className='p-links'><Link to="/Contact">Contact</Link></li>
-            <li className='p-links'><Link to="/Shop">Shop</Link></li>
-          </ul>
-          <div className='app__navbar-login'>
-            <Link to="/Cart" className='p-links' ><FaShoppingCart size={20} /></Link>
-          </div>
-          <div className='app__navbar-login'>
-            <Link to="/Book-Table" className='p-links'>Book-Table</Link>
-          </div>
-          <div className="app__navbar-smallscreen">
-            <GiHamburgerMenu color="#DC5F00" fontSize={27} onClick={() => setToggleMenu(true)} />
-            {toggleMenu && (
-              <div className="app__navbar-smallscreen_overlay flex__center slide-bottom">
-                <MdOutlineRestaurantMenu fontSize={27} className="overlay__close" onClick={() => setToggleMenu(false)} />
-                <ul className="app__navbar-smallscreen_links">
-                  <li><Link to="/Home" onClick={() => setToggleMenu(false)}>Home</Link></li>
-                  <li><Link to="/AboutUs" onClick={() => setToggleMenu(false)}>AboutUs</Link></li>
-                  <li><Link to="/Gallery" onClick={() => setToggleMenu(false)}>Gallery</Link></li>
-                  <li><Link to="/Menu" onClick={() => setToggleMenu(false)}>Menu</Link></li>
-                  <li><Link to="/Contact" onClick={() => setToggleMenu(false)}>Contact</Link></li>
-                  <li><Link to="/Shop" onClick={() => setToggleMenu(false)}>Shop</Link></li>
-                  <li id='app__login'>
-                    <Link to="/Cart" className='p-links' onClick={() => setToggleMenu(false)}><FaShoppingCart size={20} /></Link>
-                  </li>
-                  <li id='app__table-cart'>
-                    <Link to="/Book-Table" className='p-links' onClick={() => setToggleMenu(false)}>Book-Table</Link>
-                  </li>
-                </ul>
-
-
-              </div>
+    <>
+      <nav className="navbar navbar-expand-lg navbar-dark bg-dark" id="app__navbar">
+        <Link to={"/"} className="navbar-brand" id="nav_link_logo">
+          AiModels
+        </Link>
+        <button
+          className="navbar-toggler"
+          type="button"
+          data-toggle="collapse"
+          data-target="#navbarNav"
+          aria-controls="navbarNav"
+          aria-expanded={!collapsed}
+          aria-label="Toggle navigation"
+          onClick={toggleNavbar}
+        >
+          <span className="navbar-toggler-icon"></span>
+        </button>
+        <div className={`collapse navbar-collapse ${collapsed ? "" : "show"}`} id="navbarNav">
+          <ul className="navbar-nav mr-auto" id="navbar-mid-links">
+            <li className="nav-item">
+              <Link to={"/home"} className="nav-link">
+                Home
+              </Link>
+            </li>
+            <li className="nav-item">
+              <Link to={"/products"} className="nav-link">
+                Products
+              </Link>
+            </li>
+            <li className="nav-item">
+              <Link to={"/playground"} className="nav-link">
+                Playground
+              </Link>
+            </li>
+            <li className="nav-item">
+              <Link to={"/prices"} className="nav-link">
+                Pricing
+              </Link>
+            </li>
+            {showModeratorBoard && (
+              <li className="nav-item">
+                <Link to={"/mod"} className="nav-link">
+                  Moderator Board
+                </Link>
+              </li>
             )}
-          </div>
-        </nav >
-      </>
-      : ""
-  )
-}
+            {showAdminBoard && (
+              <li className="nav-item">
+                <Link to={"/admin"} className="nav-link">
+                  Admin Board
+                </Link>
+              </li>
+            )}
+            {currentUser && (
+              <li className="nav-item">
+                <Link to={"/user"} className="nav-link">
+                  User
+                </Link>
+              </li>
+            )}
+          </ul>
 
-export default Navbar
+          {currentUser ? (
+            <ul className="navbar-nav ml-auto">
+              <li className="nav-item">
+                <Link to={"/profile"} className="nav-link">
+                  {currentUser.username}
+                </Link>
+              </li>
+              <li className="nav-item">
+                <a href="/login" className="nav-link" onClick={logOut}>
+                  LogOut
+                </a>
+              </li>
+            </ul>
+          ) : (
+            <ul className="navbar-nav ml-auto" id="asd-yui">
+              <li className="nav-item">
+                <Link to={"/login"} className="nav-link">
+                  Login
+                </Link>
+              </li>
+              <li className="nav-item">
+                <Link to={"/register"} className="nav-link" id="nav_link_Getstarted">
+                  Get Started
+                </Link>
+              </li>
+            </ul>
+          )}
+        </div>
+      </nav>
+    </>
+  );
+};
+
+export default Navbar;

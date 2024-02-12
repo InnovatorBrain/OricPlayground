@@ -14,7 +14,21 @@
     background-size: cover;
     background-attachment: fixed;
     overflow: hidden;
+
+    /* Center the background image on small screens */
+    @media (max-width: 767px) {
+        display: flex;
+        background-position: center;
+        color: var(--color-white);
+
+
+
+    }
+
 }
+
+
+
 
 
 .app-slider-overlay {
@@ -25,15 +39,11 @@
     left: 0;
     width: 100%;
     height: 100%;
-    padding: 15px 0 0 0;
-    /* 200px padding for static background */
-    /* overflow-y: scroll; */
+    padding: 0 0 0 0;
     transform: translateY(0);
-    /* Initial transform value */
     display: flex;
     justify-content: center;
     flex-direction: column;
-    
 
 }
 
@@ -43,9 +53,10 @@
 
 #slider-heading {
     font-size: 55px;
-    font-weight:500;
+    font-weight: 500;
 }
-#slider-text{
+
+#slider-text {
     font-size: 16px;
     max-width: 500px;
     text-align: center;
@@ -54,5 +65,31 @@
 #slideOne-img-id {
     margin: 0 auto;
     width: 100%;
-    height:75%;
+    height: 75%;
+}
+
+@media (max-width: 767px) {
+    .app-slider-image {
+        background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("../../assets/Slides/slide-one.jpg");
+    }
+
+    .app-slider-text {
+        display: flex;
+        justify-content: center;
+        margin: auto;
+        text-align: center;
+    }
+
+    #slider-text {
+        display: flex;
+        justify-content: center;
+        text-align: center;
+        max-width: 80%;
+        padding-left: none !important;
+    }
+
+    .app-slider-overlay {
+        margin: auto
+    }
+
 }

@@ -26,10 +26,10 @@
 
 .plans {
   &__container {
-    padding: 1rem 0 2rem;
+    padding: 1rem;
   }
 
-  width: 96%;
+  width: 100%;
   max-width: 1128px;
   margin: 0 auto;
 }
@@ -51,6 +51,7 @@
     margin: 0;
   }
 }
+
 /* hero ends */
 
 /* plan item starts */
@@ -117,11 +118,12 @@
     margin-top: auto;
   }
 }
+
 /* plan item ends */
 
 /* components start */
 .button {
-  --bgColor:#6554AF;
+  --bgColor: #6554AF;
   --color: var(--pink);
   --shadowColor: rgb(234 76 137 / 30%);
   --outline: var(--pink);
@@ -341,13 +343,14 @@
 
 /* Mine styles
 */
-.planItem__container{
-    display: flex;
-    justify-content: space-around;
-    margin:10px auto 10px auto
+.planItem__container {
+  display: flex;
+  justify-content: space-around;
+  margin: 10px auto 10px auto
 }
- .planItem {
-    max-width: 350px;
+
+.planItem {
+  max-width: 350px;
 }
 
 /* Responsive adjustments */
@@ -358,9 +361,10 @@
   }
 
   .planItem__container {
-    --direction: row;
+    display: flex;
     flex-direction: column;
     justify-content: center;
+    align-items: center;
     margin: auto;
   }
 }
@@ -369,10 +373,18 @@
   :root {
     --baseSize: 12px;
   }
+
+  .plans {
+    max-width: 480px;
+    width: 90%;
+  }
+
   .planItem__container {
-    --direction: row;
+    display: flex;
+    flex-wrap: wrap;
     flex-direction: column;
     justify-content: center;
+    align-items: center;
     margin: auto;
   }
 }
@@ -382,7 +394,3 @@
     --baseSize: 14px;
   }
 }
-
-
-
-

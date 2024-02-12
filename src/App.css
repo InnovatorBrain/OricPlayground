@@ -41,10 +41,28 @@ label {
   flex-wrap: wrap;
   justify-content: space-between;
   align-items: center;
-  padding: .5rem 2rem;
+  padding: .5rem;
   /* background: var(--color-light); */
   background-color: rgba(247, 230, 196, 0.9);
   transition: transform 0.3s ease-in-out;
+}
+
+#navbar-right-side-buttons {
+  display: flex;
+  justify-content: right;
+  margin: auto;
+}
+
+#asd-yui {
+  display: flex;
+  justify-content: flex-end;
+  margin: auto 10px auto auto;
+}
+
+
+#nav_link_logo {
+  color: var(--color-white);
+  font-size: 24px;
 }
 
 .navbar-brand {
@@ -63,26 +81,26 @@ label {
   cursor: pointer;
   padding: 8px;
   justify-content: space-between;
+  align-items: center;
+  align-content: center;
 
 }
 
 .navbar-nav:hover {
-  color: var(--color-light);
+  color: var(--color-white);
 }
 
-#nav_link_Getstarted{
+#nav_link_Getstarted {
   background-color: var(--color-white);
   border-radius: 13px;
   color: var(--color-a);
   font-weight: bold;
+  padding-inline: 10px;
 }
-#nav_link_Getstarted:hover{
+
+#nav_link_Getstarted:hover {
   background-color: var(--color-a);
   border-radius: 13px;
   color: var(--color-white);
   font-weight: bold;
-}
-#nav_link_logo {
-  color: var(--color-white);
-  font-size: 24px;
 }

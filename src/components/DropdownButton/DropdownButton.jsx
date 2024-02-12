@@ -6,11 +6,15 @@ import React from 'react'
 
 function DropdownButtonsss() {
     return (
-        <DropdownButton id="dropdown-basic-button" title="Chose Model">
-            <Dropdown.Item href="#/action-1">OpenAi</Dropdown.Item>
-            <Dropdown.Item href="#/action-2">Claude</Dropdown.Item>
-            <Dropdown.Item href="#/action-3">Gemini Ai</Dropdown.Item>
-        </DropdownButton>
+        <>
+            <div className="drop-downbuttons-container">
+                <DropdownButton id="dropdown-basic-button" title="Chose Model">
+                    <Dropdown.Item href="#/action-1">OpenAi</Dropdown.Item>
+                    <Dropdown.Item href="#/action-2">Claude</Dropdown.Item>
+                    <Dropdown.Item href="#/action-3">Gemini Ai</Dropdown.Item>
+                </DropdownButton>
+            </div>
+        </>
     )
 }
 
