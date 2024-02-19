@@ -1,27 +1,27 @@
 import React from 'react'
-import './SideBarCon.css'
+import './PlaygroundCon.css'
 import Sidebar from "../../components/Sidebar/Sidebar";
 import Prompt from "../../components/Prompt/Prompt";
 import DropdownButtonsss from "../../components/DropdownButton/DropdownButton";
 import TModels from "../../components/Turbo Models/TModels";
 import PBoxes from '../../components/PBoxes/PBoxes';
-function SideBarCon() {
+function PlaygroundCon() {
     return (
         <>
-            <div className="SideBarContainer">
-                <div className="sb_con">
+            <div className="PlaygroundContainer">
+                <div className="PlaygroundSidebar">
                     <Sidebar />
                 </div>
-                <div className="p_con">
+                <div className="PlaygroundPrompt">
                     <Prompt />
                 </div>
-                <div className="dd_con">
+                <div className="PlaygroundDropdownButtons">
                     <DropdownButtonsss />
                 </div>
-                <div className="t_models">
+                <div className="PlaygroundTerboModels">
                     <TModels />
                 </div>
-                <div className="PB_boxes">
+                <div className="PlaygroundOnPageFunction">
                     <PBoxes />
                 </div>
             </div>
@@ -29,4 +29,4 @@ function SideBarCon() {
     )
 }
 
-export default SideBarCon
+export default PlaygroundCon

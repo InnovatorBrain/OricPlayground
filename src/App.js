@@ -12,7 +12,7 @@ import EventBus from "./common/EventBus";
 import Slides from "./components/Slides/Slides";
 import Prices from "./components/Prices/Prices";
 import Login from "./components/Login";
-import SideBarCon from "./container/SideBarCon/SideBarCon";
+import PlaygroundCon from "./container/PlaygroundCon/PlaygroundCon";
 import Register from "./components/Register";
 import Footer from "./components/Footer/Footer";
 import FeatureSec from "./components/FeatureSec/FeatureSec";
@@ -74,7 +74,7 @@ const App = () => {
         />
         <Route exact path={"/products"} element={<><Products /></>} />
         <Route path="prices" element={<><Prices /> <Footer /> </>} />
-        <Route path="playground" element={<><SideBarCon /></>} />
+        <Route path="playground" element={<><PlaygroundCon /></>} />
         <Route exact path="/login" element={<Login />} />
         <Route exact path="/register" element={<Register />} />
         <Route exact path="/profile" element={<Profile />} />

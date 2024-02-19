@@ -1,8 +1,13 @@
-import React from 'react'
+import React, { useState } from 'react';
 import "./PBoxes.css"
 import { TiDocumentText } from "react-icons/ti";
 
 function PBoxes() {
+    const [sidebarOpen, setSidebarOpen] = useState(false);
+
+    const toggleSidebar = () => {
+        setSidebarOpen(!sidebarOpen);
+    };
     return (
         <>
             <div className="PBContainer">

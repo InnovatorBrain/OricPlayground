@@ -1,26 +1,28 @@
-.SideBarContainer {
+.PlaygroundContainer {
     position: relative;
     display: flex;
+    height: 80vh;
     width: 100%;
 }
 
-.sb_con {
+.PlaygroundSidebar {
     display: flex;
     flex-wrap: nowrap;
-    max-width: 25%;
+    max-width: 35%;
     flex-wrap: nowrap;
     justify-content: flex-start
 }
 
-.p_con {
+.PlaygroundPrompt {
     display: flex;
     flex-wrap: nowrap;
     justify-content: center;
     margin: auto auto 10px auto;
+    max-width: 100%;
 
 }
 
-.dd_con {
+.PlaygroundDropdownButtons {
     flex-wrap: nowrap;
     position: absolute;
     top: 5%;
@@ -30,7 +32,7 @@
     margin: auto;
 }
 
-.t_models {
+.PlaygroundTerboModels {
     flex-wrap: nowrap;
     position: absolute;
     top: 5%;
@@ -41,7 +43,7 @@
 
 }
 
-.PB_boxes {
+.PlaygroundOnPageFunction {
     position: absolute;
     top: 5%;
     left: 20%;
@@ -50,6 +52,9 @@
 }
 
 
+/* OKIES */
+
+/* OKIES */
 
 
 
@@ -58,7 +63,55 @@
 
 /* Media query for screens smaller than 576px (e.g., smartphones) */
 @media only screen and (max-width: 575.98px) {
-    
+    .PlaygroundContainer {
+        height: 80vh;
+        flex-direction: column;
+    }
+
+    .PlaygroundSidebar {
+        max-width: 100%;
+        width: 100% !important;
+        justify-content: flex-start;
+        z-index: 15000;
+    }
+
+    .PlaygroundPrompt {
+        max-width: 100%;
+        margin: auto auto 20px auto;
+        z-index: 5;
+    }
+
+    .PlaygroundDropdownButtons {
+        flex-wrap: wrap;
+        position: absolute;
+        top: 5%;
+        right: 0;
+        z-index: 10000;
+        /* Increase the z-index value */
+    }
+
+
+    .PlaygroundTerboModels {
+        flex-wrap: wrap;
+        position: absolute;
+        top: 5%;
+        right: 35%;
+        display: flex;
+        justify-content: flex-end !important;
+        margin: auto;
+        width: 55px;
+        z-index: 10000;
+
+    }
+
+    .PlaygroundOnPageFunction {
+        position: absolute;
+        top: 15%;
+        left: 20%;
+        margin: auto;
+        display: flex;
+        z-index: 10000;
+    }
 }
 
 /* Media query for screens between 576px and 767px (e.g., larger smartphones and small tablets) */
