@@ -1,18 +1,48 @@
+.prompt-main-container {
+    box-sizing: border-box;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    width: 800px; /* Align items at the bottom */
+    height: auto; /* Ensure full viewport height */
+    position: relative; /* Make the container position-relative for absolute positioning */
+}
+
 .messageBox {
-    display: flex;
-    justify-content: center;
-    margin: auto auto 10px auto;
     position: absolute;
-    width: 50%;
-    height: 50px;
     display: flex;
-    justify-content: center;
+    flex-direction: row;
+    bottom: 0; /* Position the message box at the bottom */
+    width: 700px;
+    height: 50px;
     background-color: var(--color-1);
     padding: 0 15px;
     border-radius: 10px;
     border: 1px solid rgb(63, 63, 63);
+    z-index: 2; /* Ensure the message box is above other content */
 }
 
+.responses-container {
+    position: relative;
+    width: 100%; /* Ensure responses container spans the entire width */
+    margin-top: auto;
+    margin-bottom: 60px; /* Adjust margin to accommodate message box height */
+}
+
+.responses {
+    padding: 10px; /* Add padding to responses for better readability */
+}
+
+.response {
+    margin-bottom: 10px; /* Add margin between individual responses */
+    /* Add any other styling for responses */
+}
+
+
+
+
+/* okies */
 #messageInput {
     width: 100%;
     height: 100%;

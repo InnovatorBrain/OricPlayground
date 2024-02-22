@@ -73,8 +73,8 @@ const App = () => {
           element={<><Slides /> <FeatureSec /> <Prices /> <Marq /><Footer /></>}
         />
         <Route exact path={"/products"} element={<><Products /></>} />
-        <Route path="prices" element={<><Prices /> <Footer /> </>} />
-        <Route path="playground" element={<><PlaygroundCon /></>} />
+        <Route path="/prices" element={<><Prices /> <Footer /> </>} />
+        <Route path="/nlp" element={<><PlaygroundCon /></>} />
         <Route exact path="/login" element={<Login />} />
         <Route exact path="/register" element={<Register />} />
         <Route exact path="/profile" element={<Profile />} />
